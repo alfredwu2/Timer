@@ -12,12 +12,7 @@ class ViewController: UIViewController {
 
     
     @IBOutlet var display: [UILabel]!
-    
-    @IBOutlet weak var normalActionsLabel: UILabel!
-    
     @IBOutlet var normalLabel: [UILabel]!
-    
-    
     @IBOutlet weak var totalDisplay: UILabel!
     @IBOutlet var startButton: [UIButton]!
     
@@ -25,8 +20,12 @@ class ViewController: UIViewController {
     var time = [0, 0, 0]
     var isRunning = [false, false, false]
     var timer = [Timer(), Timer(), Timer()]
-    var normalCount = 0
-    var normalMax = 10
+    var normalCount = [0, 0, 0]
+    let normalMax = [
+        2, // Exploration
+        2, // Hold
+        2, // Movement
+        ]
     
     var startTime = [NSDate(), NSDate(), NSDate()]
     
@@ -127,26 +126,28 @@ class ViewController: UIViewController {
     //MARK: 'normal'
     
     
-    @IBAction func resetNormalTapped(_ sender: Any) {
-        normalCount = 0
+    @IBAction func resetNormalTapped(_ sender: UIButton) {
+        normalCount[sender.tag] = 0
         updateNormalLabel()
     }
     
-    @IBAction func minusNormalTapped(_ sender: Any) {
-        normalCount -= 1
-        if normalCount < 0 {
-            normalCount = 0
+    @IBAction func minusNormalTapped(_ sender: UIButton) {
+        normalCount[sender.tag] -= 1
+        if normalCount[sender.tag] < 0 {
+            normalCount[sender.tag] = 0
         }
         updateNormalLabel()
     }
     
-    @IBAction func plusNormalTapped(_ sender: Any) {
-        normalCount += 1
+    @IBAction func plusNormalTapped(_ sender: UIButton) {
+        normalCount[sender.tag] += 1
         updateNormalLabel()
     }
     
     private func updateNormalLabel() {
-        normalActionsLabel.text = "\(normalCount) / \(normalMax)"
+        for i in 0..<normalLabel.count {
+            normalLabel[i].text = "\(normalCount[i]) / \(normalMax[i])"
+        }
     }
     
     //MARK:
