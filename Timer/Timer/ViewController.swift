@@ -12,6 +12,12 @@ class ViewController: UIViewController {
 
     
     @IBOutlet var display: [UILabel]!
+    
+    @IBOutlet weak var normalActionsLabel: UILabel!
+    
+    @IBOutlet var normalLabel: [UILabel]!
+    
+    
     @IBOutlet weak var totalDisplay: UILabel!
     @IBOutlet var startButton: [UIButton]!
     
@@ -19,6 +25,8 @@ class ViewController: UIViewController {
     var time = [0, 0, 0]
     var isRunning = [false, false, false]
     var timer = [Timer(), Timer(), Timer()]
+    var normalCount = 0
+    var normalMax = 10
     
     var startTime = [NSDate(), NSDate(), NSDate()]
     
@@ -26,6 +34,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         updateDisplay()
+        updateNormalLabel()
     }
 
     func tick0() {
@@ -115,6 +124,32 @@ class ViewController: UIViewController {
         updateDisplay()
     }
     
+    //MARK: 'normal'
+    
+    
+    @IBAction func resetNormalTapped(_ sender: Any) {
+        normalCount = 0
+        updateNormalLabel()
+    }
+    
+    @IBAction func minusNormalTapped(_ sender: Any) {
+        normalCount -= 1
+        if normalCount < 0 {
+            normalCount = 0
+        }
+        updateNormalLabel()
+    }
+    
+    @IBAction func plusNormalTapped(_ sender: Any) {
+        normalCount += 1
+        updateNormalLabel()
+    }
+    
+    private func updateNormalLabel() {
+        normalActionsLabel.text = "\(normalCount) / \(normalMax)"
+    }
+    
+    //MARK:
     
     private func updateDisplay() {
         //timeDisplay.text = format(time)
