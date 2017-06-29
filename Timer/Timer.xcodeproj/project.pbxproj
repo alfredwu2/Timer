@@ -12,6 +12,7 @@
 		9E7F0A2B1EF9760B00DC16F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F0A291EF9760B00DC16F1 /* Main.storyboard */; };
 		9E7F0A2D1EF9760B00DC16F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F0A2C1EF9760B00DC16F1 /* Assets.xcassets */; };
 		9E7F0A301EF9760B00DC16F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F0A2E1EF9760B00DC16F1 /* LaunchScreen.storyboard */; };
+		9E88F07B1F0415B80071DA3A /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88F07A1F0415B80071DA3A /* ScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9E7F0A2C1EF9760B00DC16F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E7F0A2F1EF9760B00DC16F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E7F0A311EF9760B00DC16F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E88F07A1F0415B80071DA3A /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				9E7F0A251EF9760B00DC16F1 /* AppDelegate.swift */,
 				9E7F0A271EF9760B00DC16F1 /* ViewController.swift */,
 				9E7F0A291EF9760B00DC16F1 /* Main.storyboard */,
+				9E88F07A1F0415B80071DA3A /* ScheduleViewController.swift */,
 				9E7F0A2C1EF9760B00DC16F1 /* Assets.xcassets */,
 				9E7F0A2E1EF9760B00DC16F1 /* LaunchScreen.storyboard */,
 				9E7F0A311EF9760B00DC16F1 /* Info.plist */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E88F07B1F0415B80071DA3A /* ScheduleViewController.swift in Sources */,
 				9E7F0A281EF9760B00DC16F1 /* ViewController.swift in Sources */,
 				9E7F0A261EF9760B00DC16F1 /* AppDelegate.swift in Sources */,
 			);

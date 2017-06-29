@@ -14,18 +14,21 @@ class ViewController: UIViewController {
     @IBOutlet var display: [UILabel]!
     @IBOutlet var normalLabel: [UILabel]!
     @IBOutlet weak var totalDisplay: UILabel!
+    @IBOutlet weak var extraDisplay: UILabel!
     @IBOutlet var startButton: [UIButton]!
     
     
     var time = [0, 0, 0]
+    var timeMax = [50 * 60, 195 * 60, 15 * 60] // target time
     var isRunning = [false, false, false]
     var timer = [Timer(), Timer(), Timer()]
     var normalCount = [0, 0, 0]
     let normalMax = [
-        2, // Exploration
+        3, // Exploration
+        3, // Movement
         2, // Hold
-        2, // Movement
         ]
+    
     
     var startTime = [NSDate(), NSDate(), NSDate()]
     
@@ -160,11 +163,20 @@ class ViewController: UIViewController {
         }
         
         var totalTime = 0
-        for time in time {
-            totalTime += time
+        var extraTime = 0
+        var totalTarget = 0
+        for i in 0..<time.count {
+            if time[i] < timeMax[i] {
+                totalTime += time[i]
+            } else {
+                totalTime += timeMax[i]
+                extraTime += time[i] - timeMax[i]
+            }
+            totalTarget += timeMax[i]
         }
         
-        totalDisplay.text = format(totalTime)
+        totalDisplay.text = "\(format(totalTime)) / \(format(totalTarget))"
+        extraDisplay.text = format(extraTime)
     }
     
     private func format(_ time: Int) -> String {
